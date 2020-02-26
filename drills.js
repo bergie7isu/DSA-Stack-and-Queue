@@ -132,3 +132,59 @@ stackToSort.push(1);
 stackToSort.push(4);
 console.log(display(stackToSort));
 console.log(sortStack(stackToSort));
+
+//6. Create a queue using Singly linked list
+const Queue = require('./Queue')
+const starTrekQ = new Queue();
+starTrekQ.enqueue('Kirk');
+starTrekQ.enqueue('Spock');
+starTrekQ.enqueue('Uhura');
+starTrekQ.enqueue('Sulu');
+starTrekQ.enqueue('Checkov');
+
+const peekQ = function(queue) {
+  if (queue.first === null) {
+    return 'Empty queue!';
+  };
+  return queue.first.value;
+};
+console.log(peekQ(starTrekQ));
+
+const isEmptyQ = function(queue) {
+  if (queue.first === null) {
+    return true;
+  };
+  return false;
+};
+console.log(isEmptyQ(starTrekQ));
+const starTrekQ2 = new Queue();
+console.log(isEmptyQ(starTrekQ2));
+
+const displayQ = function(queue) {
+  if (queue.first === null) {
+    return 'Empty queue!';
+  };
+  const queueArray = [];
+  currNode = queue.first;
+  while (currNode !== null) {
+    queueArray.push(currNode.value);
+    currNode = currNode.next;
+  };
+  return queueArray;
+};
+console.log(displayQ(starTrekQ));
+
+//7. Create a queue class using Doubly linked List
+const DoubleQueue = require('./DoubleQueue')
+const starTrekDQ = new DoubleQueue();
+starTrekDQ.enqueue('Kirk');
+starTrekDQ.enqueue('Spock');
+starTrekDQ.enqueue('Uhura');
+starTrekDQ.enqueue('Sulu');
+starTrekDQ.enqueue('Checkov');
+starTrekDQ.dequeue();
+console.log(peekQ(starTrekDQ));
+console.log(isEmptyQ(starTrekDQ));
+const starTrekDQ2 = new DoubleQueue();
+console.log(isEmptyQ(starTrekDQ2));
+console.log(displayQ(starTrekDQ));
